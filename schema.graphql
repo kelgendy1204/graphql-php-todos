@@ -1,0 +1,29 @@
+type Todo {
+    id: Int
+    userId: Int
+    folderId: Int
+    text: String
+}
+
+type Folder {
+    id: Int
+    name: String
+    todos: [Todo!]!
+}
+
+type User {
+    id: Int
+    todos: [Todo!]!
+}
+
+type Query {
+    users(userName: String): [User]
+    todos(folderName: String, userName: String): [Todo]
+    folders: [Folder]
+}
+
+type Mutation {
+    createTodo(userId: Int!, folderId: Int!): Todo
+    createUser(name: String): User
+    createFolder(name: String): Folder
+}

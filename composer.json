@@ -1,0 +1,13 @@
+{
+    "name": "khaledsaad/graphql-todos",
+    "authors": [
+        {
+            "name": "Khaled Saad",
+            "email": "elgendy1204@gmail.com"
+        }
+    ],
+    "require": {
+        "webonyx/graphql-php": "^0.13.0",
+        "leocavalcante/siler": "^1.3"
+    }
+}
