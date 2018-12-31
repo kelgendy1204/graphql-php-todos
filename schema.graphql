@@ -1,8 +1,8 @@
 type Task {
     id: Int!
-    userId: Int!
-    folderId: Int!
     text: String
+    user: User!
+    folder: Folder!
 }
 
 type Folder {
@@ -13,12 +13,12 @@ type Folder {
 
 type User {
     id: Int!
-    Name: String!
+    name: String!
     tasks: [Task!]!
 }
 
 type Query {
-    users(userName: String): [User]
+    users(search: String): [User]
     tasks(folderName: String, userName: String): [Task]
     folders: [Folder]
 }
