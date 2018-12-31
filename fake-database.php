@@ -9,7 +9,7 @@ $tasks = array();
 $folders = array();
 
 for ($i=1; $i <= 10; $i++) {
-    $users[] = [
+    $users[$i] = [
         'id'                                                   => $i,
         'name'                                                 => $faker->name,
         'tasks'                                                => array_unique(array_map(function($item) use ($faker) {
@@ -19,7 +19,7 @@ for ($i=1; $i <= 10; $i++) {
 }
 
 for ($i=1; $i <= 5; $i++) {
-    $folders[] = [
+    $folders[$i] = [
         'id'                                                   => $i,
         'name'                                                 => $faker->word,
         'tasks'                                                => array_unique(array_map(function($item) use ($faker) {
@@ -29,7 +29,7 @@ for ($i=1; $i <= 5; $i++) {
 }
 
 for ($i=1; $i <= 1000; $i++) {
-    $tasks[] = [
+    $tasks[$i] = [
         'id'       => $i,
         'userId'   => mt_rand(1, 10),
         'folderId' => mt_rand(1, 5),

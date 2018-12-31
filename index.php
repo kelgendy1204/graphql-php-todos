@@ -18,7 +18,8 @@ if (Request\method_is('post')) {
     // Give it to siler
     Graphql\init($schema);
 } else {
-    $fakeDatabase = include __DIR__.'/fake-database.php';
+    Response\header('Content-type', 'application/json');
 
-    echo'<pre>';print_r($fakeDatabase);
+    $fakeDatabase = include __DIR__.'/fake-database.php';
+    echo json_encode($fakeDatabase, JSON_FORCE_OBJECT);
 }
