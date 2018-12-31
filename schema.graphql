@@ -1,29 +1,30 @@
-type Todo {
-    id: Int
-    userId: Int
-    folderId: Int
+type Task {
+    id: Int!
+    userId: Int!
+    folderId: Int!
     text: String
 }
 
 type Folder {
-    id: Int
-    name: String
-    todos: [Todo!]!
+    id: Int!
+    name: String!
+    tasks: [Task!]!
 }
 
 type User {
-    id: Int
-    todos: [Todo!]!
+    id: Int!
+    Name: String!
+    tasks: [Task!]!
 }
 
 type Query {
     users(userName: String): [User]
-    todos(folderName: String, userName: String): [Todo]
+    tasks(folderName: String, userName: String): [Task]
     folders: [Folder]
 }
 
 type Mutation {
-    createTodo(userId: Int!, folderId: Int!): Todo
+    createTask(userId: Int!, folderId: Int!): Task
     createUser(name: String): User
     createFolder(name: String): Folder
 }

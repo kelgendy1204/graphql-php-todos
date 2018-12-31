@@ -17,4 +17,8 @@ if (Request\method_is('post')) {
 
     // Give it to siler
     Graphql\init($schema);
+} else {
+    $fakeDatabase = include __DIR__.'/fake-database.php';
+
+    echo'<pre>';print_r($fakeDatabase);
 }
