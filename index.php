@@ -13,13 +13,14 @@ Response\header('Access-Control-Allow-Headers', 'content-type');
 // Respond only for POST requests
 if (Request\method_is('post')) {
     // Retrive the Schema
-    $schema = include __DIR__.'/schema.php';
+    $schema = include __DIR__.'/app/schema.php';
 
     // Give it to siler
     Graphql\init($schema);
 } else {
     Response\header('Content-type', 'application/json');
 
-    $fakeDatabase = include __DIR__.'/fake-database.php';
+    $fakeDatabase = FakeDatabase::getDatabase();
+
     echo json_encode($fakeDatabase, JSON_FORCE_OBJECT);
 }

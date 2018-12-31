@@ -1,6 +1,6 @@
 <?php
 
-$fakeDatabase = include __DIR__.'/fake-database.php';
+$fakeDatabase = FakeDatabase::getDatabase();
 
 return [
     'Query' => array(
