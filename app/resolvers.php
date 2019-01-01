@@ -52,6 +52,7 @@ return [
     ),
 
     'Mutation' => null,
+
     'User' => array(
         'tasks' => function($parent) use ($fakeDatabase) {
             $tasks = array_filter($fakeDatabase['tasks'], function($task) use ($parent) {

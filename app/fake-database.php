@@ -3,17 +3,42 @@
 class FakeDatabase
 {
 
-    public static $database;
+    private static $database;
+
+    private static function dumpDatabaseToJson()
+    {
+        $fp = fopen(__Dir__ . '/data.json', 'w');
+
+        fwrite($fp, json_encode(self::$database));
+
+        fclose($fp);
+    }
+
+    private static function getDatabaseFromJson()
+    {
+        $str = file_get_contents(__Dir__ . '/data.json');
+
+        self::$database = json_decode($str, true);
+    }
+
+    public static function setDatabase($newDatabase)
+    {
+        self::$database = $newDatabase;
+
+        self::dumpDatabaseToJson();
+    }
 
     public static function getDatabase()
     {
-        $faker = Faker\Factory::create();
-        $faker->addProvider(new Faker\Provider\Lorem($faker));
-        $faker->addProvider(new Faker\Provider\Base($faker));
+        self::getDatabaseFromJson();
 
         if(isset(self::$database) && !empty(self::$database)) {
             return self::$database;
         }
+
+        $faker = Faker\Factory::create();
+        $faker->addProvider(new Faker\Provider\Lorem($faker));
+        $faker->addProvider(new Faker\Provider\Base($faker));
 
         $users = array();
         $tasks = array();
@@ -47,6 +72,8 @@ class FakeDatabase
             'tasks'   => $tasks,
             'folders' => $folders
         ];
+
+        self::dumpDatabaseToJson();
 
         return self::$database;
     }
