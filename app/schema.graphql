@@ -19,7 +19,7 @@ type User {
 
 type Query {
     users(search: String): [User]
-    tasks(folderName: String, userName: String): [Task]
+    tasks(folderId: Int, userId: Int): [Task]
     folders: [Folder]
 }
 

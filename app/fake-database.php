@@ -21,21 +21,15 @@ class FakeDatabase
 
         for ($i=1; $i <= 10; $i++) {
             $users[$i] = [
-                'id'                                                   => $i,
-                'name'                                                 => $faker->name,
-                'tasks'                                                => array_unique(array_map(function($item) use ($faker) {
-                    return $faker->unique(true)->numberBetween(1, 1000);
-                }, array_fill(0, mt_rand(1, 20), null)))
+                'id'   => $i,
+                'name' => $faker->name
             ];
         }
 
         for ($i=1; $i <= 5; $i++) {
             $folders[$i] = [
-                'id'                                                   => $i,
-                'name'                                                 => $faker->word,
-                'tasks'                                                => array_unique(array_map(function($item) use ($faker) {
-                    return $faker->unique(true)->numberBetween(1, 1000);
-                }, array_fill(0, mt_rand(1, 100), null)))
+                'id'   => $i,
+                'name' => "Folder " . $i
             ];
         }
 
