@@ -24,7 +24,7 @@ type Query {
 }
 
 type Mutation {
-    createTask(userId: Int!, folderId: Int!): Task
+    createTask(userId: Int!, folderId: Int!, text: String!): Task
     createUser(name: String): User
     createFolder(name: String): Folder
 }
