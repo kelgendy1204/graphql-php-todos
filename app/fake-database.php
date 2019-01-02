@@ -28,11 +28,11 @@ class FakeDatabase
         self::dumpDatabaseToJson();
     }
 
-    public static function getDatabase()
+    public static function getDatabase($reset = false)
     {
         self::getDatabaseFromJson();
 
-        if(isset(self::$database) && !empty(self::$database)) {
+        if(isset(self::$database) && !empty(self::$database) && !$reset) {
             return self::$database;
         }
 
@@ -58,7 +58,7 @@ class FakeDatabase
             ];
         }
 
-        for ($i=1; $i <= 1000; $i++) {
+        for ($i=1; $i <= 200; $i++) {
             $tasks[$i] = [
                 'id'       => $i,
                 'userId'   => mt_rand(1, 10),
