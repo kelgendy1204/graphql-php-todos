@@ -6,7 +6,12 @@ class Task extends Component {
         return (
             <div className="task-card">
                 <div className="task-header">
-                    Task header
+                    <span>
+                        Assignee name
+                    </span>
+                    <button>
+                        X
+                    </button>
                 </div>
                 <div className="task-body">
                     Task body
