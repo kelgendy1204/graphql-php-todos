@@ -6,16 +6,11 @@ class Folder extends Component {
     render() {
         return (
             <div className="folder">
-                <h1>
-                    Folder Title
-                </h1>
+                <h1>{this.props.name}</h1>
                 <div className="task-container">
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
+                    {this.props.tasks.map(task => {
+                        return <Task key={task.id} task={task} />;
+                    })}
                 </div>
             </div>
         );

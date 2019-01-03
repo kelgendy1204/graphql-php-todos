@@ -44,24 +44,26 @@ class FakeDatabase
         $tasks = array();
         $folders = array();
 
-        for ($i=1; $i <= 10; $i++) {
+        for ($i=1; $i <= 20; $i++) {
             $users[$i] = [
                 'id'   => $i,
                 'name' => $faker->name
             ];
         }
 
+        $foldersNames = ['Requested', 'Development', 'Testing', 'Code review', 'Production'];
+
         for ($i=1; $i <= 5; $i++) {
             $folders[$i] = [
                 'id'   => $i,
-                'name' => "Folder " . $i
+                'name' => $foldersNames[$i - 1]
             ];
         }
 
-        for ($i=1; $i <= 200; $i++) {
+        for ($i=1; $i <= 50; $i++) {
             $tasks[$i] = [
                 'id'       => $i,
-                'userId'   => mt_rand(1, 10),
+                'userId'   => mt_rand(1, 20),
                 'folderId' => mt_rand(1, 5),
                 'text'     => $faker->sentence($nbWords = 10, $variableNbWords = true)
             ];

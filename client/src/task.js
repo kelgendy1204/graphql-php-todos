@@ -7,14 +7,14 @@ class Task extends Component {
             <div className="task-card">
                 <div className="task-header">
                     <span>
-                        Assignee name
+                        {this.props.task.id} : {this.props.task.user.name}
                     </span>
                     <button>
                         X
                     </button>
                 </div>
                 <div className="task-body">
-                    Task body
+                    {this.props.task.text}
                 </div>
             </div>
         );
