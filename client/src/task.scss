@@ -1,0 +1,16 @@
+.task-card {
+    background-color: white;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    .task-header {
+        padding: 10px 15px;
+        background-color: #34a97b;
+        color: white;
+        font-size: 0.9em;
+    }
+    .task-body {
+        padding: 15px;
+    }
+}
